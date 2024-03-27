@@ -2,7 +2,7 @@
 var getUserChoice = function (userInput) {
     userInput = userInput.toLowerCase();
 
-    if(userInput === 'rock' || userInput === 'scissors' || userInput === 'paper') {
+    if(userInput === 'rock' || userInput === 'scissors' || userInput === 'paper' || userInput === 'bomb') {
         return userInput;
     } else {
         console.log('Invalid choice! Please select rock, paper, or scissors.');
@@ -24,6 +24,10 @@ var getComputerChoice = function () {
 
 //Determine game end state logically using user's and computer's choices
 var determineWinner = function (userChoice, computerChoice) {
+    if(userChoice === 'bomb') {
+        return('Bomb beats everything! You win the round!');
+    }
+
     if(userChoice === computerChoice) {
         return('The game was a tie!');
     }
